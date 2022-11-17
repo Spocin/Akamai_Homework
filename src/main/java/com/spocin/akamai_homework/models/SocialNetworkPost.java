@@ -34,5 +34,5 @@ public class SocialNetworkPost {
 
     @NotNull
     @Min(0)
-    private Long vieCount;
+    private Long viewCount;
 }
