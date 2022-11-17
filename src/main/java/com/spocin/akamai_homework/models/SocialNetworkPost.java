@@ -1,12 +1,10 @@
 package com.spocin.akamai_homework.models;
 
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 
@@ -25,11 +23,11 @@ public class SocialNetworkPost {
     private LocalDateTime postDate;
 
     @NotBlank
-    @Max(255)
+    @Length(max = 255)
     private String author;
 
     @NotBlank
-    @Max(1000)
+    @Length(max = 1000)
     private String content;
 
     @NotNull
