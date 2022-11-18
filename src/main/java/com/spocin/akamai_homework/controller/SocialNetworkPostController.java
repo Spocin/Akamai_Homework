@@ -72,7 +72,9 @@ public class SocialNetworkPostController {
 
     /* UPDATE */
     @PutMapping("/update")
-    public ResponseEntity<SocialNetworkPost> updateSocialNetworkPost (SocialNetworkPost post) {
+    public ResponseEntity<SocialNetworkPost> updateSocialNetworkPost (
+            @Valid @RequestBody SocialNetworkPost post
+    ) {
         return new ResponseEntity<>(socialNetworkPostService.updateSocialNetworkPost(post),HttpStatus.OK);
     }
 
