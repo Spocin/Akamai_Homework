@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @Service
@@ -25,6 +26,10 @@ public class SocialNetworkPostService {
     }
 
     /* READ */
+    public List<SocialNetworkPost> findAllSocialNetworkPost () {
+        return socialNetworkPostRepo.findAll();
+    }
+
     public SocialNetworkPost findSocialNetworkPostById (Long id) {
         return socialNetworkPostRepo
                 .findById(id)
@@ -40,7 +45,7 @@ public class SocialNetworkPostService {
                 .findByAuthor(author);
     }
 
-    public List<SocialNetworkPost> findSocialNetworkPostByDate (LocalDateTime fromDate, LocalDateTime toDate) {
+    public List<SocialNetworkPost> findSocialNetworkPostByDate (OffsetDateTime fromDate, OffsetDateTime toDate) {
         if (fromDate == null) {
             throw new NotValidException("FromDate must be specified");
         }
@@ -57,12 +62,12 @@ public class SocialNetworkPostService {
                 .findByPostDateBetween(fromDate,toDate);
     }
 
-    public List<SocialNetworkPost> findSocialNetworkPostByDate (LocalDateTime fromDate) {
+    public List<SocialNetworkPost> findSocialNetworkPostByDate (OffsetDateTime fromDate) {
         if (fromDate == null) {
             throw new NotValidException("FromDate must be specified");
         }
 
-        LocalDateTime dateTimeNow = LocalDateTime.now();
+        OffsetDateTime dateTimeNow = OffsetDateTime.now();
 
         if (!fromDate.isBefore(dateTimeNow)) {
             throw new NotValidException("FromDate cannot be from future");

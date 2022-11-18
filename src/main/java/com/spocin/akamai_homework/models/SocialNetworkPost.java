@@ -6,7 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @Entity
 @Getter
@@ -20,7 +20,7 @@ public class SocialNetworkPost {
 
     @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime postDate;
+    private OffsetDateTime postDate;
 
     @NotBlank
     @Length(max = 255)
