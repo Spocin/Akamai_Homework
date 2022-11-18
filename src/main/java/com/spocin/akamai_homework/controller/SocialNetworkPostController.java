@@ -1,8 +1,8 @@
-package com.spocin.akamai_homework.controllers;
+package com.spocin.akamai_homework.controller;
 
-import com.spocin.akamai_homework.DTOs.SocialNetworkPostCreationDTO;
-import com.spocin.akamai_homework.models.SocialNetworkPost;
-import com.spocin.akamai_homework.services.SocialNetworkPostService;
+import com.spocin.akamai_homework.dto.SocialNetworkPostCreationDTO;
+import com.spocin.akamai_homework.model.SocialNetworkPost;
+import com.spocin.akamai_homework.service.SocialNetworkPostService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.format.annotation.DateTimeFormat;

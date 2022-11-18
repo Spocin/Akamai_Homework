@@ -1,4 +1,4 @@
-package com.spocin.akamai_homework.exceptions;
+package com.spocin.akamai_homework.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

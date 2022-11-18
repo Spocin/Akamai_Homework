@@ -1,6 +1,6 @@
-package com.spocin.akamai_homework.repos;
+package com.spocin.akamai_homework.repo;
 
-import com.spocin.akamai_homework.models.SocialNetworkPost;
+import com.spocin.akamai_homework.model.SocialNetworkPost;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

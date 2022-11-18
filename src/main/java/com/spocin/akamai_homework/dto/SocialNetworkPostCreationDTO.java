@@ -1,4 +1,4 @@
-package com.spocin.akamai_homework.DTOs;
+package com.spocin.akamai_homework.dto;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

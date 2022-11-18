@@ -1,4 +1,4 @@
-package com.spocin.akamai_homework.models;
+package com.spocin.akamai_homework.model;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

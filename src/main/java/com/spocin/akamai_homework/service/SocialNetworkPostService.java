@@ -1,9 +1,9 @@
-package com.spocin.akamai_homework.services;
+package com.spocin.akamai_homework.service;
 
-import com.spocin.akamai_homework.exceptions.NotFoundException;
-import com.spocin.akamai_homework.exceptions.NotValidException;
-import com.spocin.akamai_homework.models.SocialNetworkPost;
-import com.spocin.akamai_homework.repos.SocialNetworkPostRepo;
+import com.spocin.akamai_homework.exception.NotFoundException;
+import com.spocin.akamai_homework.exception.NotValidException;
+import com.spocin.akamai_homework.model.SocialNetworkPost;
+import com.spocin.akamai_homework.repo.SocialNetworkPostRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
