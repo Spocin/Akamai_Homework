@@ -55,7 +55,7 @@ public class SocialNetworkPostController {
         return new ResponseEntity<>(socialNetworkPostService.findSocialNetworkPostByAuthor(author), HttpStatus.OK);
     }
 
-    @GetMapping(value = {"/postDate/{fromDate}/{toDate}","/postDate/{fromDate}"}) /* TODO Normally I would use @RequestParam but due to bug in Spring that interprets + as " " I had to do this that way*/
+    @GetMapping(value = {"/postDate/{fromDate}/{toDate}","/postDate/{fromDate}"}) /* TODO Normally I would use @RequestParam but due to bug in Spring that interprets + as " " I had to do this that way */
     public ResponseEntity<List<SocialNetworkPost>> getSocialNetworkPostByDate (
             @PathVariable
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
@@ -77,8 +77,17 @@ public class SocialNetworkPostController {
     }
 
     /* UPDATE */
-    //TODO Update
+    @PutMapping("/update")
+    public ResponseEntity<SocialNetworkPost> updateSocialNetworkPost (SocialNetworkPost post) {
+        return new ResponseEntity<>(socialNetworkPostService.updateSocialNetworkPost(post),HttpStatus.OK);
+    }
 
     /* DELETE */
-    //TODO Delete
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteSocialNetworkPost (
+            @PathVariable Long id
+    ) {
+        socialNetworkPostService.deleteSocialNetworkPost(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
