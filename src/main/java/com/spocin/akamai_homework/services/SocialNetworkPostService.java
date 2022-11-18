@@ -54,7 +54,7 @@ public class SocialNetworkPostService {
             throw new NotValidException("ToDate must be specified");
         }
 
-        if (!toDate.isAfter(fromDate)) {
+        if (toDate.isBefore(fromDate)) {
             throw new NotValidException("ToDate must be after fromDate");
         }
 
