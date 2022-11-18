@@ -1,6 +1,6 @@
 package com.spocin.akamai_homework.controller;
 
-import com.spocin.akamai_homework.dto.SocialNetworkPostCreationDTO;
+import com.spocin.akamai_homework.dto.SocialNetworkPostCreateDTO;
 import com.spocin.akamai_homework.model.SocialNetworkPost;
 import com.spocin.akamai_homework.service.SocialNetworkPostService;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +25,7 @@ public class SocialNetworkPostController {
     /* CREATE */
     @PostMapping("/create")
     public ResponseEntity<SocialNetworkPost> createSocialNetworkPost (
-            @Valid @RequestBody SocialNetworkPostCreationDTO newPostDTO
+            @Valid @RequestBody SocialNetworkPostCreateDTO newPostDTO
     ) {
         SocialNetworkPost newPost = modelMapper.map(newPostDTO, SocialNetworkPost.class);
         newPost.setPostDate(LocalDateTime.now());
