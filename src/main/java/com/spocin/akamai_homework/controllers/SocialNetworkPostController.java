@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -28,7 +28,7 @@ public class SocialNetworkPostController {
             @Valid @RequestBody SocialNetworkPostCreationDTO newPostDTO
     ) {
         SocialNetworkPost newPost = modelMapper.map(newPostDTO, SocialNetworkPost.class);
-        newPost.setPostDate(OffsetDateTime.now());
+        newPost.setPostDate(LocalDateTime.now());
         newPost.setViewCount(0L);
         return new ResponseEntity<>(socialNetworkPostService.createSocialNetworkPost(newPost),HttpStatus.CREATED);
     }
@@ -53,11 +53,11 @@ public class SocialNetworkPostController {
     public ResponseEntity<List<SocialNetworkPost>> getSocialNetworkPostByDate (
             @RequestParam
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-            OffsetDateTime fromDate,
+            LocalDateTime fromDate,
 
             @RequestParam(required = false)
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-            OffsetDateTime toDate
+            LocalDateTime toDate
     ) {
         if (toDate != null) {
             return new ResponseEntity<>(socialNetworkPostService.findSocialNetworkPostByDate(fromDate,toDate), HttpStatus.OK);

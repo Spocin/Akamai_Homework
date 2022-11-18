@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 import java.util.List;
 
 @Service
@@ -41,7 +40,7 @@ public class SocialNetworkPostService {
                 .findByAuthor(author);
     }
 
-    public List<SocialNetworkPost> findSocialNetworkPostByDate (OffsetDateTime fromDate, OffsetDateTime toDate) {
+    public List<SocialNetworkPost> findSocialNetworkPostByDate (LocalDateTime fromDate, LocalDateTime toDate) {
         if (fromDate == null) {
             throw new NotValidException("FromDate must be specified");
         }
@@ -58,12 +57,12 @@ public class SocialNetworkPostService {
                 .findByPostDateBetween(fromDate,toDate);
     }
 
-    public List<SocialNetworkPost> findSocialNetworkPostByDate (OffsetDateTime fromDate) {
+    public List<SocialNetworkPost> findSocialNetworkPostByDate (LocalDateTime fromDate) {
         if (fromDate == null) {
             throw new NotValidException("FromDate must be specified");
         }
 
-        OffsetDateTime dateTimeNow = OffsetDateTime.now();
+        LocalDateTime dateTimeNow = LocalDateTime.now();
 
         if (!fromDate.isBefore(dateTimeNow)) {
             throw new NotValidException("FromDate cannot be from future");
