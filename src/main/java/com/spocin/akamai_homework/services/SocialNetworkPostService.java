@@ -4,7 +4,7 @@ import com.spocin.akamai_homework.exceptions.NotFoundException;
 import com.spocin.akamai_homework.exceptions.NotValidException;
 import com.spocin.akamai_homework.models.SocialNetworkPost;
 import com.spocin.akamai_homework.repos.SocialNetworkPostRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -12,13 +12,9 @@ import java.time.OffsetDateTime;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class SocialNetworkPostService {
     private final SocialNetworkPostRepo socialNetworkPostRepo;
-
-    @Autowired
-    public SocialNetworkPostService (SocialNetworkPostRepo socialNetworkPostRepo) {
-        this.socialNetworkPostRepo = socialNetworkPostRepo;
-    }
 
     /* CREATE */
     public SocialNetworkPost createSocialNetworkPost (SocialNetworkPost socialNetworkPost) {

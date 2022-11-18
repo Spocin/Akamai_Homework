@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.List;
 
@@ -17,6 +16,6 @@ public interface SocialNetworkPostRepo extends JpaRepository<SocialNetworkPost, 
 
     List<SocialNetworkPost> findByPostDateBetween (OffsetDateTime fromDate, OffsetDateTime toDate);
 
-    @Query(value = "SELECT TOP(10) Id, postDate, author, content, viewCount FROM SocialNetworkPost order by viewCount", nativeQuery = true)
+    @Query(value = "SELECT TOP(10) id, post_Date, author, content, view_Count  FROM social_network_post order by view_Count DESC, post_Date ASC", nativeQuery = true)
     List<SocialNetworkPost> findTop10ByViewCount();
 }
